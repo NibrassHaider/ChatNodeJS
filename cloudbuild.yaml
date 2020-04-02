@@ -1,21 +1,3 @@
-
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/base', '.']
-
-# Print Node.js version.
-- name: 'gcr.io/$PROJECT_ID/base'
-  entrypoint: 'node'
-  args: ['--version']
-
-# Print npm version.
-- name: 'gcr.io/$PROJECT_ID/base'
-  entrypoint: 'npm'
-  args: ['--version']
-
-# Print repo-tools version.
-- name: 'gcr.io/$PROJECT_ID/base'
-  entrypoint: 'repo-tools'
-  args: ['--version']
-
-images: ['gcr.io/$PROJECT_ID/base']
+  args: ['build', '-t', 'gcr.io/cloud-run-cd-example/ChatNodeJS:$SHORT_SHA', '.']
